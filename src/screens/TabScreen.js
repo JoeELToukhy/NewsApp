@@ -6,14 +6,6 @@ import SourcesTab from './SourcesTab';
 const TabScreen = () => {
     return (
       <Container>
-          
-        <Header hasTabs>
-            <Left/>
-          <Body>
-            <Title style={{color:'white'}}>News App</Title>
-          </Body>
-          <Right />
-        </Header>
         <Tabs>
           <Tab heading="Headlines">
             <HeadlinesTab />

@@ -23,8 +23,7 @@ export default class HeadlinesTab extends Component {
             });
         }, error => {
             Alert.alert('error', 'something went wrong')
-        }
-        )
+        })
     }
   render() {
       let view = this.state.isLoading ? (

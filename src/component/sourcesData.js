@@ -16,7 +16,7 @@ export default class SourcesData extends Component {
 
     render() {
         return(
-            <ListItem>
+          <ListItem>
             <Left>
               <Text numberOfLines={2}>{this.data.name}</Text>
             </Left>

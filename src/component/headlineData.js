@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { ListItem, Left, Right, Thumbnail, Body, View, Text, Button } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 // import TimeAgo from './time';
 
 export default class HeadlineData extends Component {
@@ -10,8 +11,7 @@ export default class HeadlineData extends Component {
     }
 
     handlePress = () => {
-      const {url, title} = this.data;
-      this.props.onPress({url, title});
+        Actions.articleDetail();
     }
 
     render() {
