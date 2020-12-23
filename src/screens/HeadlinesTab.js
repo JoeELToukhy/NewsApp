@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, View, ActivityIndicator} from 'react-native';
-import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import { Alert, View, ActivityIndicator} from 'react-native';
+import { Container, Content, List, Text } from 'native-base';
 import { getArticles } from '../service/news';
 import HeadlineData from '../component/headlineData'
 
-export default class BusinessTab extends Component {
+export default class HeadlinesTab extends Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +27,6 @@ export default class BusinessTab extends Component {
         )
     }
   render() {
-      console.log(this.state.data)
       let view = this.state.isLoading ? (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <ActivityIndicator animating={this.state.isLoading} color="#00f0ff" />

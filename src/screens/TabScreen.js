@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Content,Left, Body, Right, Title, Tab, Tabs } from 'native-base';
-import BusinessTab from './BusinessTab';
-import SportsApp from './SportsTab';
+import HeadlinesTab from './HeadlinesTab';
+import SourcesTab from './SourcesTab';
 
 const TabScreen = () => {
     return (
@@ -15,11 +15,11 @@ const TabScreen = () => {
           <Right />
         </Header>
         <Tabs>
-          <Tab heading="Business">
-            <BusinessTab />
+          <Tab heading="Headlines">
+            <HeadlinesTab />
           </Tab>
-          <Tab heading="Sports">
-            {/* <SportsApp /> */}
+          <Tab heading="Sources">
+            <SourcesTab />
           </Tab>
         </Tabs>
       </Container>
