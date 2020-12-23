@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import { ListItem, Left, Right, Thumbnail, Body, View, Text, Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { articleSelected } from '../actions/index'
 // import TimeAgo from './time';
 
-export default class HeadlineData extends Component {
+class HeadlineData extends Component {
 
     constructor(props) {
         super(props);
@@ -12,6 +15,8 @@ export default class HeadlineData extends Component {
 
     handlePress = () => {
         Actions.articleDetail();
+        this.props.articleSelected(this.data);
+        // console.log(this.data)
     }
 
     render() {
@@ -37,3 +42,9 @@ export default class HeadlineData extends Component {
         );
     }
 }
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        articleSelected: articleSelected
+    }, dispatch)
+  }
+  export default connect(null, matchDispatchToProps)(HeadlineData);
