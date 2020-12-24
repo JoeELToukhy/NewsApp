@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import { ListItem, Left, Right, Thumbnail, Body, View, Text, Button } from 'native-base';
 // import TimeAgo from './time';
+import { Actions } from 'react-native-router-flux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { sourceSelected } from '../actions/index'
 
-export default class SourcesData extends Component {
+class SourcesData extends Component {
 
     constructor(props) {
         super(props);
@@ -10,8 +14,9 @@ export default class SourcesData extends Component {
     }
 
     handlePress = () => {
-      const {url, title} = this.data;
-      this.props.onPress({url, title});
+      Actions.sourceList();
+      this.props.sourceSelected(this.data);
+      // console.log(this.data)
     }
 
     render() {
@@ -32,3 +37,10 @@ export default class SourcesData extends Component {
         );
     }
 }
+
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({
+    sourceSelected: sourceSelected
+  }, dispatch)
+}
+export default connect(null, matchDispatchToProps)(SourcesData);
