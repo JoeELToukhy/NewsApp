@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 import { ListItem, Left, Right, Thumbnail, Body, View, Text, Button } from 'native-base';
+import moment from 'moment'
 import { Actions } from 'react-native-router-flux';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { articleSelected } from '../actions/index'
+import { articleSelected, articlesViewed } from '../actions/index'
+
 // import TimeAgo from './time';
 
 class HeadlineData extends Component {
 
     constructor(props) {
         super(props);
-        this.data = props.data;
+        this.data = props.data,"dsa";
     }
 
     handlePress = () => {
         Actions.articleDetail();
         this.props.articleSelected(this.data);
+        this.props.articlesViewed(this.data);
     }
 
     render() {
@@ -29,7 +32,7 @@ class HeadlineData extends Component {
                 <Text note numberOfLines={2}>{this.data.author}</Text>
                 <View style={{ flex: 1, flexDirection: 'row', marginTop: 8, marginLeft: 0 }}>
                     {/* fix time */}
-                    <Text note>{this.data.publishedAt}</Text>
+                    <Text note>{moment(this.data.publishedAt).format('llll')}</Text>
                 </View>
               </Body>
               <Right>
@@ -43,7 +46,9 @@ class HeadlineData extends Component {
 }
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
-        articleSelected: articleSelected
+        articleSelected: articleSelected,
+        articlesViewed: articlesViewed
+        
     }, dispatch)
   }
   export default connect(null, matchDispatchToProps)(HeadlineData);

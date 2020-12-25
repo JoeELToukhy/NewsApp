@@ -11,3 +11,10 @@
       payload: source
     }
   }
+
+  export function articlesViewed(viewed){
+    return{
+      type: 'Articles_Viewed',
+      payload: viewed
+    }
+  }

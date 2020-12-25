@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image, Linking  } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import moment from 'moment'
 import {connect} from 'react-redux';
 
 class ArticleDetail extends Component {
@@ -38,7 +39,7 @@ class ArticleDetail extends Component {
             </CardItem>
             <CardItem>
               <Left>
-                  <Text note>{this.props.activeArticle.publishedAt}</Text>
+                  <Text note>{moment(this.props.activeArticle.publishedAt).format('llll')}</Text>
               </Left>
               <Right>
                 <Button transparent onPress={this.handlePress}>
