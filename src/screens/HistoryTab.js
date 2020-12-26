@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import { Alert, View, ActivityIndicator} from 'react-native';
 import { Container, Content, List, Text } from 'native-base';
-import HeadlineData from '../component/headlineData'
+import HistoryData from '../component/historyData'
 
 class HistoryTab extends Component {
     constructor(props) {
@@ -23,14 +23,13 @@ class HistoryTab extends Component {
         </View>
       ) : (
         <List
-          dataArray={this.props.history}
+          dataArray={this.props.history.reverse()}
           renderRow={(item) => {
               return (
-                <HeadlineData data={item} />
+                <HistoryData data={item} />
               )
           }} />
       )
-      console.log(this.props.history)
     return (
       <Container>
         <Content>

@@ -6,13 +6,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { articleSelected, articlesViewed } from '../actions/index'
 
-// import TimeAgo from './time';
 
 class HeadlineData extends Component {
 
     constructor(props) {
         super(props);
-        this.data = props.data,"dsa";
+        this.data = props.data;
     }
 
     handlePress = () => {
@@ -31,7 +30,6 @@ class HeadlineData extends Component {
                 <Text numberOfLines={2}>{this.data.title}</Text>
                 <Text note numberOfLines={2}>{this.data.author}</Text>
                 <View style={{ flex: 1, flexDirection: 'row', marginTop: 8, marginLeft: 0 }}>
-                    {/* fix time */}
                     <Text note>{moment(this.data.publishedAt).format('llll')}</Text>
                 </View>
               </Body>
@@ -47,7 +45,7 @@ class HeadlineData extends Component {
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         articleSelected: articleSelected,
-        articlesViewed: articlesViewed
+        articlesViewed: articlesViewed,
         
     }, dispatch)
   }
